@@ -4,11 +4,13 @@ import com.google.common.util.concurrent.*;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import io.netty.util.concurrent.EventExecutorGroup;
 import io.netty.util.concurrent.FutureListener;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.concurrent.*;
 import java.util.function.Supplier;
 
+@SpringBootApplication
 @EnableAsync
 public class AsyncLearingApplication {
 
@@ -42,7 +44,9 @@ public class AsyncLearingApplication {
         //方法7：使用@Async注解
         AsyncTask asyncTask=new AsyncTask();
         asyncTask.asyncNonReturnTask();
+        asyncTask.asyncNonReturnTask2();
         System.out.println("the main thread is still running ");
+
 
 
     }
