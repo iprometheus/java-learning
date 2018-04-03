@@ -15,5 +15,4 @@ public class CollectionTest {
         System.out.println(ArrayUtils.toString(data));
     }
 
-
 }
