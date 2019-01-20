@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * VM参数： -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
  */
-public class HeapTest {
+public class HeapOOMTest {
 
     static class OOMObject{}
 
