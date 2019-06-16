@@ -16,7 +16,7 @@ public class AsyncLearingApplication {
 
 
     //异步
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
 
         //参考文档：
@@ -42,17 +42,16 @@ public class AsyncLearingApplication {
         //testNettyFuture();
 
         //方法7：使用@Async注解
-        AsyncTask asyncTask=new AsyncTask();
+        AsyncTask asyncTask = new AsyncTask();
         asyncTask.asyncNonReturnTask();
         asyncTask.asyncNonReturnTask2();
         System.out.println("the main thread is still running ");
 
 
-
     }
 
 
-    public static void testFuture() throws Exception{
+    public static void testFuture() throws Exception {
         /**
          *方法1：使用jdk1.8之前的FUture函数
          Future代表了线程执行完以后的结果，可以通过future获得执行的结果
@@ -62,10 +61,10 @@ public class AsyncLearingApplication {
          *
          */
 
-        int threadNum=1;
-        ExecutorService executorService= Executors.newFixedThreadPool(threadNum);
+        int threadNum = 1;
+        ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
 
-        Future<String> future=executorService.submit(new Callable<String>() {
+        Future<String> future = executorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
                 System.out.println("start the async task");
@@ -76,18 +75,18 @@ public class AsyncLearingApplication {
         });
 
 
-        String result= future.get();
-        System.out.println("the result:"+result);
+        String result = future.get();
+        System.out.println("the result:" + result);
     }
 
-    public static void testGuavaFuture(){
-        ExecutorService executorService=Executors.newFixedThreadPool(1);
+    public static void testGuavaFuture() {
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
 
         //使用guava提供的MoreExecutors工具类包装原始的线程池
-        ListeningExecutorService listeningExecutorService= MoreExecutors.listeningDecorator(executorService);
+        ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(executorService);
 
         //向线程池中提交一个任务后，将会返回一个可监听的Future，该Future由Guava框架提供
-        ListenableFuture<String> lf=listeningExecutorService.submit(new Callable<String>() {
+        ListenableFuture<String> lf = listeningExecutorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
                 System.out.println("star the async task");
@@ -118,13 +117,13 @@ public class AsyncLearingApplication {
         System.out.println("main thread is running");
     }
 
-    public static void testGuavaFuture2(){
+    public static void testGuavaFuture2() {
 
-        ExecutorService executorService=Executors.newFixedThreadPool(1);
-        ListeningExecutorService listeningExecutorService= MoreExecutors.listeningDecorator(executorService);
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(executorService);
 
         //向线程池中提交一个任务后，将会返回一个可监听的Future，该Future由Guava框架提供
-        ListenableFuture<String> lf=listeningExecutorService.submit(new Callable<String>() {
+        ListenableFuture<String> lf = listeningExecutorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
                 System.out.println("star the async task");
@@ -151,20 +150,20 @@ public class AsyncLearingApplication {
             public void onFailure(Throwable throwable) {
                 System.out.println("failure");
             }
-        },Executors.newSingleThreadExecutor());
+        }, Executors.newSingleThreadExecutor());
 
 
         //主线程可以继续做其他的工作
         System.out.println("main thread is running");
     }
 
-    public static void testGuavaFuture3(){
+    public static void testGuavaFuture3() {
 
-        ExecutorService executorService=Executors.newFixedThreadPool(1);
-        ListeningExecutorService listeningExecutorService= MoreExecutors.listeningDecorator(executorService);
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(executorService);
 
         //向线程池中提交一个任务后，将会返回一个可监听的Future，该Future由Guava框架提供
-        ListenableFuture<String> lf=listeningExecutorService.submit(new Callable<String>() {
+        ListenableFuture<String> lf = listeningExecutorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
                 System.out.println("star the async task");
@@ -181,59 +180,59 @@ public class AsyncLearingApplication {
             public void run() {
                 System.out.println("async finished");
             }
-        },Executors.newSingleThreadExecutor());
+        }, Executors.newSingleThreadExecutor());
 
         //主线程可以继续做其他的工作
         System.out.println("main thread is running");
     }
 
-    public static void testCompletableFuture() throws Exception{
+    public static void testCompletableFuture() throws Exception {
         //jdk1.8提供的异步实现方式
-        ExecutorService executorService=Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-        CompletableFuture<String> future=CompletableFuture.supplyAsync(new Supplier<String>() {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(new Supplier<String>() {
             @Override
             public String get() {
                 System.out.println("start the async task");
                 try {
                     Thread.sleep(5000);
-                }catch(Exception e){
+                } catch (Exception e) {
                     System.out.println("exception accured");
                 }
                 System.out.println("end the async task");
                 return "0000";
             }
-        },executorService);
+        }, executorService);
 
-        future.thenAccept(result-> System.out.println(result+"ok"));
+        future.thenAccept(result -> System.out.println(result + "ok"));
         System.out.println("main thread is still running");
 
     }
 
-    public static void testNettyFuture(){
+    public static void testNettyFuture() {
         //初始化线程池
         EventExecutorGroup group = new DefaultEventExecutorGroup(1);
 
         //向线程池中提交任务，并返回Future，该Future是netty自己实现的future
         //位于io.netty.util.concurrent包下，此处运行时的类型为PromiseTask
-        io.netty.util.concurrent.Future<String> future=
-        group.submit(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                System.out.println("start the async task");
-                Thread.sleep(5000);
-                System.out.println("end the async task");
-                return "0000";
-            }
-        });
+        io.netty.util.concurrent.Future<String> future =
+                group.submit(new Callable<String>() {
+                    @Override
+                    public String call() throws Exception {
+                        System.out.println("start the async task");
+                        Thread.sleep(5000);
+                        System.out.println("end the async task");
+                        return "0000";
+                    }
+                });
 
 
         //增加监听
-        future.addListener( new FutureListener() {
+        future.addListener(new FutureListener() {
             @Override
             public void operationComplete(io.netty.util.concurrent.Future future) throws Exception {
-                Object objResult= future.get();
-                System.out.println("result:"+objResult.toString());
+                Object objResult = future.get();
+                System.out.println("result:" + objResult.toString());
             }
         });
 

@@ -8,12 +8,13 @@ import java.util.List;
  */
 public class HeapOOMTest {
 
-    static class OOMObject{}
+    static class OOMObject {
+    }
 
     public static void main(String[] args) {
 
-        List<OOMObject> list=new ArrayList<>();
-        while (true){
+        List<OOMObject> list = new ArrayList<>();
+        while (true) {
             list.add(new OOMObject());
         }
 

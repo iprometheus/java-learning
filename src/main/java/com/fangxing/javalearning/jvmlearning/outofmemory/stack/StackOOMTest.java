@@ -14,11 +14,11 @@ public class StackOOMTest {
     }
 
     public static void main(String[] args) {
-        StackOOMTest oom=new StackOOMTest();
-        try{
+        StackOOMTest oom = new StackOOMTest();
+        try {
             oom.stackLeagth();
-        }catch (Throwable e){
-            System.out.println("stack length:"+oom.stackLength);
+        } catch (Throwable e) {
+            System.out.println("stack length:" + oom.stackLength);
             throw e;
         }
     }

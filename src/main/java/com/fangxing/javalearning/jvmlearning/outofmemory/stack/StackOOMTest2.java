@@ -5,13 +5,14 @@ package com.fangxing.javalearning.jvmlearning.outofmemory.stack;
  */
 public class StackOOMTest2 {
 
-    private void dontStop(){
-        while (true){}
+    private void dontStop() {
+        while (true) {
+        }
     }
 
-    public void stackLeakByThread(){
-        while (true){
-            Thread thread=new Thread(new Runnable() {
+    public void stackLeakByThread() {
+        while (true) {
+            Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     dontStop();
@@ -22,7 +23,7 @@ public class StackOOMTest2 {
     }
 
     public static void main(String[] args) {
-        StackOOMTest2 oom=new StackOOMTest2();
+        StackOOMTest2 oom = new StackOOMTest2();
         oom.stackLeakByThread();
     }
 

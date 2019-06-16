@@ -10,8 +10,8 @@ import org.springframework.util.CollectionUtils;
 public class CollectionTest {
 
     @Test
-    public void arrayTest(){
-        int[] data={1,3,5,7,9};
+    public void arrayTest() {
+        int[] data = {1, 3, 5, 7, 9};
         System.out.println(ArrayUtils.toString(data));
     }
 

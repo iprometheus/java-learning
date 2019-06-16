@@ -9,25 +9,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class JsonLearningApplication {
 
-	public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
-		String jsonStr="{\"name\":\"suxiaolong\",\"sex\":\"男\",\"age\":30}";
+        String jsonStr = "{\"name\":\"suxiaolong\",\"sex\":\"男\",\"age\":30}";
 
-		ObjectMapper objectMapper=new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
 
-		//Json转对象
+        //Json转对象
 
-		Student student= objectMapper.readValue(jsonStr,Student.class);
-		System.out.println(student);
+        Student student = objectMapper.readValue(jsonStr, Student.class);
+        System.out.println(student);
 
         //String转Json
-		JsonNode jsonNode=objectMapper.readTree(jsonStr);
-		System.out.println(jsonNode);
-		System.out.println(jsonNode.get("name"));
+        JsonNode jsonNode = objectMapper.readTree(jsonStr);
+        System.out.println(jsonNode);
+        System.out.println(jsonNode.get("name"));
 
-		//对象转Json的String
-		System.out.println(objectMapper.writeValueAsString(student));
+        //对象转Json的String
+        System.out.println(objectMapper.writeValueAsString(student));
 
-	}
+    }
 
 }
