@@ -1,4 +1,4 @@
-package concurrent.semaphore;
+package com.fangxing.javalearning.concurrent.semaphore;
 
 import java.util.Arrays;
 import java.util.concurrent.Semaphore;
