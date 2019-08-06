@@ -1,0 +1,15 @@
+package com.fangxing.javalearning.mockito;
+
+public class Account {
+
+    private RailwayTicket railwayTicket;
+
+    public RailwayTicket getRailwayTicket() {
+        return railwayTicket;
+    }
+
+    public void setRailwayTicket(RailwayTicket railwayTicket) {
+        this.railwayTicket = railwayTicket;
+    }
+
+}
