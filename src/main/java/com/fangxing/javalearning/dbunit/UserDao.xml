@@ -4,8 +4,9 @@
 <mapper namespace="com.fangxing.javalearning.dbunit.IUserDao">
 
     <!-- 查询人员信息  -->
-    <insert id="addUser" parameterType="java.lang.String">
-
+    <insert id="queryUser" parameterType="com.fangxing.javalearning.dbunit.UserVO">
+        select user_name userName,user_class from fangxing.user_t
+        where user_name=#{name,jdbcType=VARCHAR}
     </insert>
 
 
