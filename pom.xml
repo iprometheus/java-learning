@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fangxing.javalearning</groupId>
-    <artifactId>json-learning</artifactId>
+    <artifactId>java-learning</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>json-learning</name>
+    <name>java-learning</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
