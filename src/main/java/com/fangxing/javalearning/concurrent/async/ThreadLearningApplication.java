@@ -1,4 +1,4 @@
-package com.fangxing.javalearning.threadlearning;
+package com.fangxing.javalearning.concurrent.async;
 
 public class ThreadLearningApplication {
 

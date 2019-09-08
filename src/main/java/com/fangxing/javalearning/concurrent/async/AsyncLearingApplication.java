@@ -1,4 +1,4 @@
-package com.fangxing.javalearning.threadlearning;
+package com.fangxing.javalearning.concurrent.async;
 
 import com.google.common.util.concurrent.*;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
